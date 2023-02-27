@@ -1,11 +1,10 @@
-function doMath (a,b) {
-    let result = a * b
-    return result
+function doMath (a, b) {
+
+    console.log(`this is the result ${a * b}`)
+    console.log(`this is the result ${a + b}`)
+    console.log(`this is the result ${a - b}`)
+    console.log(`this is the result ${a / b}`)
 
 }
 
-doMoreMath =(a , b) => a * b
-
-
-
-console.log(doMoreMath(20 , 30))
+doMath(10, 4)
