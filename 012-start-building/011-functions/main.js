@@ -1,4 +1,6 @@
 //Update  the DOM
+const myArr = ['Robert', 29]
+
 
 const updateDOM = (input) => {
 
@@ -8,14 +10,12 @@ const updateDOM = (input) => {
     divEl.appendChild(p)
 }
 
-const mileage = (miles, gallons, price) => miles/gallons * price
-const miles = parseInt(prompt('Enter the number of miles you want to travel:'));
-const gallons = parseInt(prompt('Enter the number of gallons your vehicle can hold:'));
-const price = parseFloat(prompt('Enter the price per gallon of gas:'));
+const trackMPGCost = (miles, gallons, price = 3.79) => {
+const MPG = miles/gallons
+const tripCost = MPG * price
+myArr.push(MPG, tripCost)
+}
 
+updateDOM(trackMPGCost(300, 10, 5.40))
+updateDOM(trackMPGCost(320, 12, 5))
 
-updateDOM(mileage(miles, gallons, price))
-
-//Took inspiration from what you said in the lecture about User Input Data, The values in
-//updateDOM section were changed to reflect user input to be calulated instead of set
-//values.
