@@ -19,34 +19,19 @@ const trackMPGandCost = (miles, gallons, price = 3.79) => {
     myTripCost.push(tripCost)
 
 }
-const calculateMPGAvg  = () => {
-    let totalMPG = 0
-    for (let i = 0; i < myMPG.length; i++) {
-        totalMPG = totalMPG + myMPG[i]
-    }
-    let avgMPG = totalMPG/myMPG.length
-    const formattedavgMPG = avgMPG.toLocaleString
-        ('en-US', {
-            style: 'currency',
-            currency: 'USD'
-            })
-    updateDOM(`Average MPG is ${formattedavgMPG}`)
-    
-    
-}
-const calculateAvgCost = () => {
-    let totalCost = 0
-    for (let i = 0; i < myTripCost.length; i++) {
-        totalCost = totalCost + myTripCost[i]
-        
-    }
-    let avgCost = totalCost/myTripCost.length
-    const formattedavgCost = avgCost.toLocaleString
-    ('en-US', {
-        style: 'currency',
-        currency: 'USD'
-            })
-    updateDOM(`Average cost is ${formattedavgCost}`) 
+const calculateAvg = () => {
+        let sumMPG = 0
+        let sumTripCost = 0
+        for(let i = 0; i< myMPG.length; i++) {
+            sumMPG = sumMPG + myMPG[i]
+            sumTripCost = sumTripCost + myTripCost[i]
+
+        }
+        let avgMPG = Math.round(sumMPG/myMPG.length)
+        let avgTripCost = Math.round(sumTripCost/myTripCost.length)
+        updateDOM(`Average MPG is ${avgMPG}`)
+        updateDOM(`Average trip cost is ${avgTripCost}`)
+
 
 }
 
@@ -60,5 +45,4 @@ trackMPGandCost(600, 12, 4)
 trackMPGandCost(50, 15, 3.40)
 trackMPGandCost(320, 12, 3)
 updateDOM(myMPG)
-calculateMPGAvg()
-calculateAvgCost()
+calculateAvg()
