@@ -23,7 +23,7 @@ const trackMPGCost = (miles, gallons, price) => miles/gallons * price
                 }
     )
     updateDOM(`Mileage is ${MPG} and trip cost is ${formattedTripCost}`)
-    myArr.push(MPG, tripCost)
+    myMPG.push(MPG, tripCost)
 
 
 
