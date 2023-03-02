@@ -38,7 +38,7 @@ const calculateAvg = () => {
 
 }
 
-FORM.addEventListener('submit', (e) => {
+FORM.addEventListener('submit', (e)) => {
     e.preventDefault
     const miles = parseInt(e.target.miles.value)
     const gallon = parseInt(e.target.gallons.value)
