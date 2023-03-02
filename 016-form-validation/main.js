@@ -4,6 +4,8 @@ const ERR = document.getElementById('err')
 
 const MY_MPG = []
 const MY_TRIP_COST = []
+const MY_TRIP_AVG=[]
+
 
 const updateDOM = (input) => {
 
@@ -29,12 +31,17 @@ const calculateSUM = (arr) => {
     return sum
 }
 const calculateAvg = () => {
+        
         let sumMPG = calculateSUM(MY_MPG)
         let sumTripCost = calculateSUM(MY_TRIP_COST)
         let avgMPG = Math.round(sumMPG/MY_MPG.length)
         let avgTripCost = Math.round(sumTripCost/MY_TRIP_COST.length)
         updateDOM(`Average MPG is ${avgMPG}`)
         updateDOM(`Average trip cost is ${avgTripCost}`)
+        MY_TRIP_AVG.push(avgTripCost)
+            if (MY_TRIP_COST < [0]) {
+                updateDOM(`Average trip cost is ${avgTripCost}`)
+            }
 
 
 }
@@ -53,9 +60,9 @@ FORM.addEventListener('submit', (e) => {
         ERR.textContent = errMsg
     } else {
             trackMPGandCost(miles, gallon, price)
+            calculateAvg()
     }
     
 })
 
-calculateAvg(avgMPG, avgTripCost)
-updateDOM()
+
