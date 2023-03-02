@@ -35,9 +35,7 @@ const calculateSUM = (arr) => {
         sum += arr[i]
         i++
     }
-    while (i < arr.length) {
-       
-    }
+    while (i < arr.length)
     return sum
 }
 const calculateAvg = () => {
