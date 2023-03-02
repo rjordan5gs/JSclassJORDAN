@@ -45,7 +45,7 @@ FORM.addEventListener('submit', (e) => {
     const miles = parseInt(e.target.miles.value)
     const gallon = parseInt(e.target.gallons.value)
     const price = parseInt(e.target.price.value)
-    if(miles === 0) {
+    if(price > 1000) {
         errMsg.push('Make sure your input value is greater than 0!, Try Again.')
     } 
 
@@ -56,3 +56,6 @@ FORM.addEventListener('submit', (e) => {
     }
     
 })
+
+calculateAvg(avgMPG, avgTripCost)
+updateDOM()
