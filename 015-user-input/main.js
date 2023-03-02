@@ -1,4 +1,5 @@
 //Update  the DOM
+const FORM = document.getElementById(`form-input`)
 
 const MY_MPG = []
 const MY_TRIP_COST = []
@@ -37,14 +38,23 @@ const calculateAvg = () => {
 
 }
 
+FORM.addEventListener('submit', (e) => {
+    e.preventDefault
+    const miles = parseInt(e.target.miles.value)
+    const gallon = parseInt(e.target.gallons.value)
+    const price = parseInt(e.target.price.value)
+    
+    trackMPGandCost(miles, gallon, price)
+})
+
 
 // calculateAvgCost and fix AVerage MPG Decimal
 // commit message = "my code for calc average cost"
-trackMPGandCost(360, 15, 5.40)
-trackMPGandCost(320, 12, 5)
-trackMPGandCost(100, 7, 4.40)
-trackMPGandCost(600, 12, 4)
-trackMPGandCost(50, 15, 3.40)
-trackMPGandCost(320, 12, 3)
-updateDOM(MY_MPG)
-calculateAvg()
+// trackMPGandCost(360, 15, 5.40)
+// trackMPGandCost(320, 12, 5)
+// trackMPGandCost(100, 7, 4.40)
+// trackMPGandCost(600, 12, 4)
+// trackMPGandCost(50, 15, 3.40)
+// trackMPGandCost(320, 12, 3)
+// updateDOM(MY_MPG)
+// calculateAvg()
