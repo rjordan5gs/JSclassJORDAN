@@ -35,8 +35,9 @@ const calculateSUM = (arr) => {
         sum += arr[i]
         i++
     }
-    while (i < arr.length)
-    return sum
+    while (i < arr.length) {
+    
+        return sum}
 }
 const calculateAvg = () => {
         let sumMPG = calculateSUM(MY_MPG)
