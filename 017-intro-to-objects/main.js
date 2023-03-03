@@ -1,21 +1,56 @@
-const myArr =[]
+const CHAR_SELECT = document.getElementById('characters')
+const FORM = document.getElementById('form-input')
+const OUTPUT_DIV = document.getElementById('output')
 
-// console.log(typeof myObj)
-// console.log(typeof myArr)
-// console.log(myArr === myObj)
-const myNumber = 9
-const myObj ={
-    name: 'Rio',
-    age: 59,
-    hobbies: ['coding', 'running' , 'workout'],
-    mobile: {
-        make: 'pixel 7',
-        OS: 'android'
+const updateDOM = (input) => {
+    const p = document.createElement('p')
+    p.textContent = input
+    OUTPUT_DIV.appendChild(p)
+}
+
+const warriorCharacter = {
+    class: 'Warrior',
+    level: 1,
+    weapons: ['Bastard Sword', 'Axe' , 'Fists'],
+    Stats: {
+        Strength: '10',
+        Dexterity: '8',
+        Agility:'4',
+        Intellegence:'2'
     },
-    myGreeting: function(person) {
-        return `${this.name}who love to ${this.hobbies[0]}says what is up ${person}`
+    myCharacter: function() {
+        return `You have chosen ${this.class}, your weapon of choice is ${this.weapons[0]}.`
     }
 }
 
-const greeting = myObj.greeting('jane')
-console.log(greeting)
+const rangerCharacter = {
+    class: 'Ranger',
+    level: 1,
+    weapons: ['Long Bow', 'Long Sword' , 'Dagger'],
+    Stats: {
+        Strength: '7',
+        Dexterity: '5',
+        Agility:'10',
+        Intellegence:'6'
+    },
+    myCharacter: function() {
+        return `You have chosen ${this.class}, your weapon of choice is ${this.weapons[0]}.`
+    }
+}
+
+FORM.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const selectedCharacter = CHAR_SELECT.value
+    let character
+
+    if (selectedCharacter === 'Warrior') {
+        character = warriorCharacter
+    } else if (selectedCharacter === 'Ranger') {
+        character = rangerCharacter
+    }
+
+    if (character) {
+        const characterInfo = character.myCharacter()
+        updateDOM(characterInfo)
+    }
+})
