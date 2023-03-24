@@ -1,6 +1,7 @@
 const FORM = document.getElementById('form-input')
 const ERR = document.getElementById('err')
 const AVG_OUTPUT = document.getElementById('output-avg')
+const TBL_OUTPUT = document.getElementById('table-out')
 
 const MY_DATA = []
 
@@ -16,11 +17,11 @@ function trackMPGandCost (miles, gallons, price) {
     const tripCost = Math.round(gallons * price)
     updateDOM(`Miles per gallon  is ${MPG} and trip cost is ${tripCost}`, '#output')
     return {
-        MPG: MPG, 
-        tripCost: tripCost,
         miles: miles,
         gallons: gallons,
-        price: price
+        price: price,
+        MPG: MPG, 
+        tripCost: tripCost
     }
 }
 
@@ -54,6 +55,19 @@ function isFormValid (miles, gallons, price) {
     }
 }
 
+function renderTable() {
+    const tbl = document.createElement('table')
+    const headings = ['Miles Driven:' , 'Gallons Used:' , 'Price Paid' , 'Trip MPG' , 'Trip Cost' , 'Edit/Delete']
+    const tr = document.createElement('tr')
+    headings.forEach(function(heading) {
+        let th = document.createElement('th')
+        th.textContent = heading
+        tr.appendChild(th)
+    })
+    tbl.appendChild(tr)
+    TBL_OUTPUT.appendChild(tbl)
+}
+
 FORM.addEventListener('submit', (e) => {
     e.preventDefault()
     const miles = parseInt(e.target.miles.value)
@@ -65,6 +79,7 @@ FORM.addEventListener('submit', (e) => {
         AVG_OUTPUT.textContent = ''
         const dataObj = trackMPGandCost(miles, gallons, price)
         MY_DATA.push(dataObj)
+        renderTable()
         calculateAvg()
     }
     FORM.reset()  

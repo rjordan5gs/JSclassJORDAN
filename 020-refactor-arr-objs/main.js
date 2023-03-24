@@ -53,6 +53,19 @@ const isFormValid = (miles, gallons, price) => {
         return true
     }
 }
+function renderTable() {
+    const tbl = document.createElement('table')
+    const headings = ('Miles Driven:' , 'Gallons Used:' , 'Price Paid' , 'Trip Cost' , 'Edit/Delete')
+    const tr = document.createElement('tr')
+    headings.forEach(function(heading) {
+        let th = document.createElement('th')
+        th.textContent = heading
+        tr.appendChild(th)
+    })
+    console.log(tr)
+    tbl.appendChild(tr)
+    TBL_OUTPUT.appendChild(tbl)
+}
 
 FORM.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -65,6 +78,7 @@ FORM.addEventListener('submit', (e) => {
         AVG_OUTPUT.textContent = ''
         const dataObj = trackMPGandCost(miles, gallons, price)
         MY_DATA.push(dataObj)
+        renderTable()
         calculateAvg()
     }
     FORM.reset()  
