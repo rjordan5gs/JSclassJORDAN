@@ -44,7 +44,7 @@ const isFormValid = (miles, gallons, price) => {
         errMsg.push('Make sure your input value greater than 0!!, Try Again')
     }
     if (price > 1000) {
-        errMsg.push('Really!!!?? I think this is in error...Try again')
+        errMsg.push('Really!!!? I think this is in error...Try again')
     }
     if (errMsg.length > 0) {
         ERR.textContent = errMsg
@@ -69,3 +69,4 @@ FORM.addEventListener('submit', (e) => {
     }
     FORM.reset()  
 })
+
