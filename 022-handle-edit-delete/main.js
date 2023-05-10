@@ -67,15 +67,12 @@ function renderTableHeadings() {
     tbl.appendChild(tr)
     return tbl
 }
-function renderEditDelBtn(index) {
+function renderEditDelBtn() {
     const td = document.createElement('td')
     const editBtn = document.createElement('button')
     editBtn.textContent = 'edit'
     const delBtn = document.createElement('button')
     delBtn.textContent = 'delete'
-    editBtn.addEventListener('click', function(e){
-        console.log(index)
-    })
     td.appendChild(editBtn)
     td.appendChild(delBtn)
     return td
@@ -85,14 +82,14 @@ function renderTable () {
     TBL_OUTPUT.innerHTML= ''
     const tbl = renderTableHeadings()
     TBL_OUTPUT.appendChild(tbl)
-    MY_DATA.forEach(function(obj, index){
+    MY_DATA.forEach(function(obj){
             const tr = document.createElement('tr')
             for(key in obj){
                 let td = document.createElement('td')
                 td.textContent = obj[key]
                 tr.appendChild(td)
             }
-            const btnTD = renderEditDelBtn(index)
+            const btnTD = renderEditDelBtn()
             tr.appendChild(btnTD)
             tbl.appendChild(tr)
     })
