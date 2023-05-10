@@ -55,7 +55,7 @@ function isFormValid (miles, gallons, price) {
     }
 }
 
-function renderTable() {
+function renderTableHeadings() {
     const tbl = document.createElement('table')
     const headings = ['Miles Driven:' , 'Gallons Used:' , 'Price Paid' , 'Trip MPG' , 'Trip Cost' , 'Edit/Delete']
     const tr = document.createElement('tr')
@@ -65,7 +65,34 @@ function renderTable() {
         tr.appendChild(th)
     })
     tbl.appendChild(tr)
+    return tbl
+}
+function renderEditDelBtn() {
+    const td = document.createElement('td')
+    const editBtn = document.createElement('button')
+    editBtn.textContent = 'edit'
+    const delBtn = document.createElement('button')
+    delBtn.textContent = 'delete'
+    td.appendChild(editBtn)
+    td.appendChild(delBtn)
+    return td
+}
+
+function renderTable () {
+    TBL_OUTPUT.innerHTML= ''
+    const tbl = renderTableHeadings()
     TBL_OUTPUT.appendChild(tbl)
+    MY_DATA.forEach(function(obj){
+            const tr = document.createElement('tr')
+            for(key in obj){
+                let td = document.createElement('td')
+                td.textContent = obj[key]
+                tr.appendChild(td)
+            }
+            const btnTD = renderEditDelBtn()
+            tr.appendChild(btnTD)
+            tbl.appendChild(tr)
+    })
 }
 
 FORM.addEventListener('submit', (e) => {
@@ -80,6 +107,7 @@ FORM.addEventListener('submit', (e) => {
         const dataObj = trackMPGandCost(miles, gallons, price)
         MY_DATA.push(dataObj)
         renderTable()
+        renderTableHeadings()
         calculateAvg()
     }
     FORM.reset()  
