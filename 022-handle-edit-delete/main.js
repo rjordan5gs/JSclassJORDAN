@@ -69,16 +69,16 @@ function renderTableHeadings() {
 
 }
 
-function renderEditDelBtn() {
+function renderEditDelBtn(index) {
     const td = document.createElement('td')
     const editBtn = document.createElement('button')
     editBtn.textContent = 'edit'
     const delBtn = document.createElement('button')
     delBtn.textContent = 'delete'
     editBtn.addEventListener('click', function(e){
-        FORM[0].value = miles
-        FORM[1].value = gallons
-        FORM[2].value = price
+        FORM[0].value = MY_DATA[index].miles
+        FORM[1].value = MY_DATA[index].gallons
+        FORM[2].value = MY_DATA[index].price
         MY_DATA.splice(index, 1)
 })
     td.appendChild(editBtn)
@@ -91,14 +91,14 @@ function renderTable () {
     TBL_OUTPUT.innerHTML= ''
     const tbl = renderTableHeadings()
     TBL_OUTPUT.appendChild(tbl)
-    MY_DATA.forEach(function(obj){
+    MY_DATA.forEach(function(obj, index){
             const tr = document.createElement('tr')
             for(key in obj){
                 let td = document.createElement('td')
                 td.textContent = obj[key]
                 tr.appendChild(td)
             }
-            const btnTD = renderEditDelBtn()
+            const btnTD = renderEditDelBtn(index)
             tr.appendChild(btnTD)
             tbl.appendChild(tr)
     })
@@ -116,7 +116,6 @@ FORM.addEventListener('submit', (e) => {
         const dataObj = trackMPGandCost(miles, gallons, price)
         MY_DATA.push(dataObj)
         renderTable()
-        renderTableHeadings()
         calculateAvg()
     }
     FORM.reset()  
