@@ -8,8 +8,39 @@
 </head>
 <body>
     <h1>CRUD APP</h1>
+
+    <form>
+
+        <label for="mood">Mood:</label>
+            <select id="mood" name="mood">
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Angry">Angry</option>
+            </select>
+        
+        <label for="time-of-day">Time of Day:</label>
+            <select id="time-of-day" name="time-of-day">
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
+            </select>
+        
+        <label for="good-day">Good Day:</label>
+            <select id="good-day" name="good-day">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        
+        <button type="submit">Submit</button>
+        
+    </form>
+
     <p>Output:</p>
     <p id="output"></p>
+
+    <div id="message">Message:</div>
+
+    <script src="main.js"></script>
     
 </body>
 </html>

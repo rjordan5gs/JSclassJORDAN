@@ -1,21 +1,44 @@
-function updateDOM (input, id) {
-    const divEl = document.querySelector(id)
-    const p = document.createElement('p')
-    p.textContent = input
-    divEl.appendChild(p)
-}
-
 //global variables
-const timeOfDay = 8
-const goodDay = true
-const feelings = 'happy'
+const RECORDS = [];
 
-if (goodDay === true && timeOfDay > 7) {
-    updateDOM('you are happy')
+//functions
+function updateDOM(input, id) {
+  const outputEl = document.querySelector(id);
+  const recordText = `Mood: ${input.mood}, When: ${input.timeOfDay}, Was it a good day: ${input.goodDay}`;
+  outputEl.textContent = recordText;
 }
-else if(goodDay !== false || timeOfDay < 8) {
-    updateDOM('are you happy?')
-}
-else{
-    updateDOM('I would be happy if')
-}
+
+function addRecord(event) {
+    event.preventDefault();
+  
+    const mood = document.querySelector('#mood').value;
+    const timeOfDay = document.querySelector('#time-of-day').value;
+    const goodDay = document.querySelector('#good-day').value;
+  
+    const record = { mood, timeOfDay, goodDay };
+        RECORDS.push(record);
+        updateDOM(record, '#output');
+  
+        if (mood === 'Happy' && goodDay === 'Yes') {
+            displayMessage("Sick! Keep on being productive!");
+        } else {
+            displayMessage("It's going to be hard, but keep up the hard work!");
+        }
+  
+        document.querySelector('#mood').value = '';
+        document.querySelector('#time-of-day').value = '';
+        document.querySelector('#good-day').value = '';
+  }
+  
+
+function displayMessage(message) {
+    const messageEl = document.querySelector('#message');
+    messageEl.textContent = message;
+  }
+
+  
+const form = document.querySelector('form');
+form.addEventListener('submit', addRecord);
+
+
+
