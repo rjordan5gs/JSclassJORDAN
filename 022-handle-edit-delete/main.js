@@ -66,16 +66,25 @@ function renderTableHeadings() {
     })
     tbl.appendChild(tr)
     return tbl
+
 }
+
 function renderEditDelBtn() {
     const td = document.createElement('td')
     const editBtn = document.createElement('button')
     editBtn.textContent = 'edit'
     const delBtn = document.createElement('button')
     delBtn.textContent = 'delete'
+    editBtn.addEventListener('click', function(e){
+        FORM[0].value = miles
+        FORM[1].value = gallons
+        FORM[2].value = price
+        MY_DATA.splice(index, 1)
+})
     td.appendChild(editBtn)
     td.appendChild(delBtn)
     return td
+
 }
 
 function renderTable () {

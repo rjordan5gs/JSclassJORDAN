@@ -73,8 +73,13 @@ function renderEditDelBtn(index) {
     editBtn.textContent = 'edit'
     const delBtn = document.createElement('button')
     delBtn.textContent = 'delete'
+
+    
     editBtn.addEventListener('click', function(e){
-        console.log(index)
+        FORM[0].value = miles
+        FORM[1].value = gallons
+        FORM[2].value = price
+        MY_DATA.splice(index, 1)
     })
     td.appendChild(editBtn)
     td.appendChild(delBtn)
