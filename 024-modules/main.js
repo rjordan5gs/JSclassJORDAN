@@ -1,6 +1,6 @@
 import { renderTable} from "./render.js"
 import { getTripData, saveTripData } from "./storage.js"
-import { isFormValid, calculateAvg, trackMPGandCost} from "./formvalidation.js"
+import { isFormValid, calculateAvg, trackMPGandCost} from "./handleinput.js"
 
 const FORM = document.getElementById('form-input')
 const ERR = document.getElementById('err')
@@ -9,14 +9,6 @@ const AVG_OUTPUT = document.getElementById('output-avg')
 
 const MY_DATA = getTripData()
 renderTable(MY_DATA)
-
-function updateDOM (input, id) {
-    const divEl = document.querySelector(id)
-    const p = document.createElement('p')
-    p.textContent = input
-    divEl.appendChild(p)
-}
-
 
 
 FORM.addEventListener('submit', (e) => {
@@ -30,7 +22,7 @@ FORM.addEventListener('submit', (e) => {
         AVG_OUTPUT.textContent = ''
         const dataObj = trackMPGandCost(miles, gallons, price)
         MY_DATA.push(dataObj)
-        saveTripData(MY_DATA)
+        saveTripData()
         renderTable(MY_DATA, FORM)
         calculateAvg()
     }
