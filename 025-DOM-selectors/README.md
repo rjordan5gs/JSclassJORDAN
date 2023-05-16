@@ -1,8 +1,8 @@
-# Week 11 README input
+# Week 12 README input
 
-This code looks a little more organized now that it is in module format, I'm sure it would come in handy breaking all this code into pieces based on funcitionality.
+## Fix my code
+This is a confusing problem for me since each button is created after user input is accepted, I would have to code a way for each button after creation to have the same class and also disable them after an edit button is pushed using an event listener listening for a click on edit. I am not one hundered percent sure thats the only thing I will have to do, but its definitly on the right track.
 
-I keep running into an error about the storage, I ran some tests and it seems like whenever there is no tripdata in the local storage the program runs fine, but as soon as tripdata is set, it appears as undefined.
-
-My guess is the JSON isn't being defined properly due to the parse.
+## Which DOM selector and where would it go.
+I would put the code in the render.js file under the function renderEditDelBtn and use the getelementbyclass name to group the edit buttons.
 
