@@ -1,4 +1,5 @@
 import {saveTripData} from "./storage.js"
+import { calculateAvg } from "./handleinput.js"
 
 const FORM = document.getElementById('form-input')
 const TBL_OUTPUT = document.getElementById('table-out')
@@ -65,6 +66,7 @@ function renderTable (MY_DATA) {
                 tbl.appendChild(tr)
         })
     }
+    calculateAvg(MY_DATA)
 }
 
 export {renderTable}

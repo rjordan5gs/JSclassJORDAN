@@ -27,4 +27,12 @@ function hello(s) {
 - Any function that is not a higher order function is called a first order function
 
 
+# CODE CHALLENGE:
+
+For the first 2 problems all you would need to do is change these since we changed the code:
+
+    const avgMPG = Number((sums.MPG/numberOfObj).toFixed(2))
+    const avgTripCost = Number((sums.tripCost/numberOfObj).toFixed(2))
+
+    I have no idea how I would change the updateDOM functions.
 

@@ -8,4 +8,4 @@ I would put the code in the render.js file under the function renderEditDelBtn a
 
 
 
-I WAS RIGHT!
+I WAS RIGHT! I had a rough idea what to do, just had to have the guidance!
