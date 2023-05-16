@@ -21,7 +21,7 @@ function addRecord(event) {
     //object
 	const userObj = {
     	data: record,
-    	decision: mood === 'Happy' && goodDay === 'Yes' ? "Sick! Keep on being productive!" : "It's going to be hard, but keep up the hard work!"
+    	decision: mood === 'Happy' && goodDay === 'Yes' ? "You will work on a project!" : "You will lay in bed!"
 	}
 	displayMessage(userObj.decision);
  
@@ -36,9 +36,47 @@ function displayMessage(message) {
 	messageEl.textContent = message;
 }
 
+const form = document.getElementById('form');
 
-const form = document.querySelector('form');
-form.addEventListener('submit', addRecord);
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const mood = document.getElementById('mood').value;
+    const timeOfDay = document.getElementById('time-of-day').value;
+    const goodDay = document.getElementById('good-day').value;
+
+    const errors = [];
+
+    if (mood === '') {
+        errors.push('Please select a mood.');
+    }
+
+    if (timeOfDay === '') {
+        errors.push('Please select a time of day.');
+    }
+
+    if (goodDay === '') {
+        errors.push('Please select whether you feel like working.');
+    }
+
+    if (errors.length > 0) {
+        const errorMessage = errors.join(' ');
+        document.getElementById('message').textContent = errorMessage;
+    } else {
+        document.getElementById('message').textContent = '';
+
+        handleFormSubmission(mood, timeOfDay, goodDay);
+
+        form.reset();
+    }
+});
+
+function handleFormSubmission(mood, timeOfDay, goodDay) {
+    console.log('Mood:', mood);
+    console.log('Time of Day:', timeOfDay);
+    console.log('Good Day:', goodDay);
+}
+
 
 
 
