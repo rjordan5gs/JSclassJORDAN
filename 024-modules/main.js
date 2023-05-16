@@ -22,9 +22,9 @@ FORM.addEventListener('submit', (e) => {
         AVG_OUTPUT.textContent = ''
         const dataObj = trackMPGandCost(miles, gallons, price)
         MY_DATA.push(dataObj)
-        saveTripData()
+        saveTripData(MY_DATA)
         renderTable(MY_DATA, FORM)
-        calculateAvg()
+        calculateAvg(MY_DATA)
     }
     FORM.reset()  
 })

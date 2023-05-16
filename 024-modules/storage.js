@@ -4,7 +4,7 @@ function getTripData() {
     const tripDataJSON = localStorage.getItem('tripdata')
     if (tripDataJSON !== null) {
         return JSON.parse(tripDataJSON)
-    } else {
+    } else {    
         return []
     }
 }
