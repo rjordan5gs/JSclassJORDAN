@@ -36,3 +36,6 @@ For the first 2 problems all you would need to do is change these since we chang
 
     I have no idea how I would change the updateDOM functions.
 
+Update: I tried to update the code bit it appears the main is requiring "const AVG_OUTPUT = document.getElementById('output-avg')
+" to stay.
+
