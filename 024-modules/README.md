@@ -1,27 +1,8 @@
-# Week 10 README input
+# Week 11 README input
 
-## How to convert a array of objects into JSON:
+This code looks a little more organized now that it is in module format, I'm sure it would come in handy breaking all this code into pieces based on funcitionality.
 
-Javascript Object Notation:
-The way we convert an array of objects into JSON string is to use JSON.stringify on the object array like this:
+I keep running into an error about the storage, I ran some tests and it seems like whenever there is no tripdata in the local storage the program runs fine, but as soon as tripdata is set, it appears as undefined.
 
-        const myarr = []
-            user: "user",
-            user: "user",
-            user: "user"
-        
-        const jsonConversion = JSON.stringify(myarr)
+My guess is the JSON isn't being defined properly due to the parse.
 
-## Local Storage:
-
-    -Local storage isn't persistent
-    -Local storage has no expiration time
-    -Local storage exists on RAM
-    -RAM is Volitile
-    -The alternative to local storage is:
-        1. Web SQL database
-        2. Web Storage API's
-        3. Cookies(expires)
-
-## JSON conversion
-    To convert the JSON I input a local sotrage command into the FORM it works for some of the functionality, but doesn't seem to edit other settings.
