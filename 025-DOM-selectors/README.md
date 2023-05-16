@@ -6,3 +6,6 @@ This is a confusing problem for me since each button is created after user input
 ## Which DOM selector and where would it go.
 I would put the code in the render.js file under the function renderEditDelBtn and use the getelementbyclass name to group the edit buttons.
 
+
+
+I WAS RIGHT!
