@@ -27,14 +27,20 @@ function trackMPGandCost (miles, gallons, price) {
 
 function calculateAvg (MY_DATA) {
     const numberOfObj = MY_DATA.length
-    let sumMPG  = 0
-    let sumTripCost = 0  
-    MY_DATA.forEach(obj => {
-        sumMPG += obj.MPG
-        sumTripCost += obj.tripCost
+    // let sumMPG  = 0
+    // let sumTripCost = 0  
+    // MY_DATA.forEach(obj => {
+    //     sumMPG += obj.MPG
+    //     sumTripCost += obj.tripCost
+    // })
+    const sums = MY_DATA.reduce(function(sum, obj){
+        return {
+             MPG: sum.MPG + obj.MPG,
+             tripCost: sum.tripCost + obj.tripCost
+        }
     })
     const avgMPG = Number((sumMPG/numberOfObj).toFixed(2))
-    const avgTripCost = Math.round(sumTripCost/numberOfObj)
+    const avgTripCost = Number((sumTripCost/numberOfObj).toFixed(2))
     updateDOM(`Average MPG is ${avgMPG}`, '#output-avg')
     updateDOM(`Average Trip Cost is ${avgTripCost}`, '#output-avg')
 }
