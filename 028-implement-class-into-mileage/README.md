@@ -15,3 +15,11 @@ Things that broke:
 - Average Trip Cost
 
 For the first one all I had to do was set MY_DATA.push(trip), for the Average MPG and Tripcost, I will have to probably reference new trip.
+
+
+## Why did we not include methods in the Trip class?
+The way out code was written, generating multipule unreferenced objects that wouldn't work with the code.
+
+## Do you have a better understanding of implementing a class?
+
+I think making classes at the beggining of a project would be smart simply because you can generate most of the objects you would need faster. Hierarchy is easy to keep track of because everything would belong in its container. It also ensures inheritance flows through the code neatly.
