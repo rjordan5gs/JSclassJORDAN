@@ -7,3 +7,7 @@ At first glance, I think this will make it easier to make objects following the 
 ## Does the Student subclass make since? Do you now understand the protoype chain?
 
 The prototype chain works with inheritance, several objects contains similar methods and functions from its parent object so it they can be used further down the chain. In a way they are all containers, but with the Student class I would say that it works the same as the blueprint it was given similar to a template.
+
+## Code Challenge:
+
+I created getters and setters for the _lastName, _address, and _classLists and made several edits to capitalization since I forgot to use cammel case and changed the console.log commands to display to getFirstName, getLastName, getAddress, and getClassList.
