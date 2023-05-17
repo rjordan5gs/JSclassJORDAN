@@ -7,18 +7,20 @@ function updateDOM(message, el) {
     output.appendChild(newEl)
 }
 
-function workout (type, reps, time, start) {
-    start(`Begin ${type} you must complete ${reps}` , 'p')
+function startWorkout(type, reps, time, fn) {
+    fn(`Start ${type} <> goal reps is ${reps}` , 'p')
     setTimeout(() => {
-        fn(`${type} Finished`)
-    }, time * 500);
+        fn(`Stop ${type}` , 'h1')
+    }, time *1000);
 }
+
+
 
 formEl.addEventListener('submit' , function(e) {
     e.preventDefault()
     const type = e.target.type.value
     const reps = parseFloat(e.target.reps.value)
     const time = parseFloat(e.target.time.value)
-    workout(type, reps, time, updateDOM)
+    startWorkout(type, reps, time, updateDOM)
     formEl.reset()
 })
