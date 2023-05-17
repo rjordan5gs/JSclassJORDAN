@@ -1,10 +1,6 @@
-# Week 14 Async Code
+# Week 14 Promises
 
-## What is the callback for thing 1 and thing 2
+## Code Challenge:
 
-For thing one the callback should be thing1 and thing2 according to the last part of the code and thing2 calls thing3.
+I've made it so the startWorkout function returns a promise that resolves the setTimoutfunction post workout. I've also implimented a try catch block that awaits startWorkout to be resolved, but for some reason its asking for an async keyword?The catch keyword will console.log them.
 
-
-## Coding challenge
-
-I think I got most of the functions done, but for some reason I keep getting an error I've never seen before on the event listener on submit. I tried to implement the video knowledge into the code as well since async code confuses the heck out of me.
