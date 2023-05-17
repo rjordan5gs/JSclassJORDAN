@@ -25,18 +25,6 @@ function updateDOM (input, id) {
 //     }
 // }
 
-class MPGandCost {
-    constructor(miles,gallons, price) {
-        this._miles = miles
-        this._gallons = gallons
-        this._price = price
-        this._MPG = Number((miles/gallons).toFixed(2))
-        this._tripCost = Number((gallons * price).toFixed(2))
-    }
-}
-
-
-
 function calculateAvg (MY_DATA) {
     AVG_OUTPUT.innerHTML = ''
     const numberOfObj = MY_DATA.length
@@ -72,4 +60,4 @@ function isFormValid (miles, gallons, price) {
 
 
 
-export {isFormValid, calculateAvg, MPGandCost}
+export {isFormValid, calculateAvg}
