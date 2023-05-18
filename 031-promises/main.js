@@ -78,7 +78,7 @@ function fetchData() {
     return new Promise(function(resolve, reject) {
         fetch('https://api.weather.gov/gridpoints/HNX/53,100/forecast')
         .then(response => response.json())
-        .then(data.properties.periods[1].shortForecast)
+        .then(data.properties.periods[0].shortForecast)
     })
 }
 
